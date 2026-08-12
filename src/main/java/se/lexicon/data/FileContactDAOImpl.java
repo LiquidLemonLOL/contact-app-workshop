@@ -102,18 +102,14 @@ public class FileContactDAOImpl implements ContactDAO {
     }
 
     //helper method to split and parse line when using findAll(), splits name and phonenumber with comma
-    //and checks for possible invalid formats, try-catch block also makes sure to trim any whitespaces to
-    //avoid any user mistakes during input
+    //and checks for possible invalid formats, also makes sure to trim any whitespaces to
+    //avoid any user mistakes during inputo
     private Contact parseLine(String line) throws ContactStorageException {
         String[] split = line.split(",");
         if (split.length < 2) {
             throw new ContactStorageException("Invalid line format found: " + filePath + ": " + line);
         }
-        try {
-            return new Contact(split[0].trim(), split[1].trim());
-        } catch (IllegalArgumentException e) {
-            throw new ContactStorageException("Invalid contact found: " + filePath + ": " + line, e);
-        }
+        return new Contact(split[0].trim(), split[1].trim());
     }
 
 
