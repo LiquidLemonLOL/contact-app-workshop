@@ -1,0 +1,17 @@
+The MVC pattern itself seeks to very clearly divide an application three distinct parts, much to improve the SoC
+and to make sure that when possibly extending the application, new features are easily able to be identified as to
+where they should be housed. Same logic works when identifying bugs, if it data-related or it relates to business logic,
+model is in charge of it.
+
+Along with having clear separations of concerns, MVC keeps it clear when it comes to which parts of the application
+that should communicate between each other. Specifically, the Model and View should not explicitly house each other -
+if you have an instance of your model in your view, something is wrong and should be fixed.
+
+Model handles the data and business logic of the application, here it keeps the record of contacts, delivers the list
+of said contacts and handles look-ups and read/write operations. View both displays whats the user sees, and houses
+user input that the application wants to work with.
+
+Controller then works as the middle-man between these two parts - it receives the user input, handles it and sends it to
+the Model for potential updates of the application data, Model returns the result and Controller delivers this back
+to the View so that the user can see the changes made through their input. It can handle input validation so that no
+incorrect data gets sent between the parts of the application.

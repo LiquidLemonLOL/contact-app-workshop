@@ -42,7 +42,7 @@ public class FileContactDAOImpl implements ContactDAO {
 
         List<Contact> contacts = new ArrayList<>();
 
-        //try-with-resources for safety, adds the read line to the contact list if its not empty, throws exception
+        //try-with-resources for safety, adds the read line to the contact list if it's not blank, throws exception
         //if any IO-related errors occur, then returns list of contacts
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath.toString()))) {
             String res;
