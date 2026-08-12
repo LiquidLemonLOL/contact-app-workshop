@@ -70,7 +70,7 @@ public class ContactController {
         String name = contactView.getUserInput("Enter name of contact: ");
         Contact contact = contactDAO.findByName(name);
         if(contact == null){
-            contactView.displayMessage("Contact with name " + name + " could not be found");
+            contactView.displayError("Contact with name " + name + " could not be found");
         } else {
             contactView.displayMessage(contact.toString());
         }
