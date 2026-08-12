@@ -84,6 +84,7 @@ public class FileContactDAOImpl implements ContactDAO {
     }
 
     //fast namecheck, null return could be spooky but used to make sure no contact is found when saving
+    @Override
     public Contact findByName(String name) throws ContactStorageException {
         if (name == null) {
             throw new IllegalArgumentException("Name cannot be null");
@@ -103,7 +104,7 @@ public class FileContactDAOImpl implements ContactDAO {
 
     //helper method to split and parse line when using findAll(), splits name and phonenumber with comma
     //and checks for possible invalid formats, also makes sure to trim any whitespaces to
-    //avoid any user mistakes during inputo
+    //avoid any user mistakes during input
     private Contact parseLine(String line) throws ContactStorageException {
         String[] split = line.split(",");
         if (split.length < 2) {
